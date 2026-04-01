@@ -58,23 +58,22 @@
 
         /* Hero Section */
         .hero {
-            /* Removed the iced tea background image and set it to the sleek dark theme color */
-            background: var(--dark);
-            height: 80vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            min-height: 80vh; /* Changed from fixed height to min-height to prevent overlap */
+            padding: 6rem 20px; /* Added padding to give breathing room top and bottom */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 0 20px;
         }
-        .hero-logo {
-            width: 250px;
-            max-width: 80%;
+        .hero img.center-logo {
+            max-width: 200px;
+            height: auto;
             border-radius: 50%;
             margin-bottom: 2rem;
-            box-shadow: 0 0 30px rgba(255, 20, 147, 0.4); /* Neon pink glow behind the logo */
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.4); /* Adds the pink glow behind the logo */
         }
         .hero h1 {
             font-size: 4rem;
@@ -82,7 +81,7 @@
             margin-bottom: 1rem;
             text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
         }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; color: #ccc;}
+        .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 600px; }
         .btn {
             background: var(--primary);
             color: white;
@@ -92,6 +91,7 @@
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid var(--primary);
+            display: inline-block;
         }
         .btn:hover { background: transparent; color: var(--primary); }
 
@@ -183,18 +183,24 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        /* Responsive Mobile Adjustments */
         @media(max-width: 768px) {
+            header {
+                justify-content: center; /* Centers the logo on mobile when nav is hidden */
+            }
             .menu-wrapper { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero img.center-logo { max-width: 180px; } /* Slightly smaller center logo on mobile */
+            .hero h1 { font-size: 2.8rem; }
+            .accent-font { font-size: 2rem; } /* Reduces the cursive text size slightly so it doesn't break awkwardly */
             nav ul { display: none; }
+            section { padding: 4rem 5%; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo"><img src="Gemini_Generated_Image_tny3l9tny3l9tny3.png" alt="The Nutrition Fix Logo" style="height: 50px; vertical-align: middle; border-radius: 50%;"></a>
+        <a href="#" class="logo"><img src="image_8.png" alt="The Nutrition Fix Logo" style="height: 50px; vertical-align: middle; border-radius: 50%;"></a>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -206,7 +212,7 @@
     </header>
 
     <section class="hero">
-        <img src="Gemini_Generated_Image_tny3l9tny3l9tny3.png" alt="The Nutrition Fix Logo" class="hero-logo">
+        <img src="image_8.png" alt="The Nutrition Fix Logo" class="center-logo">
         <span class="accent-font">Create Your Own Reality</span>
         <h1>Healthy Hangout.</h1>
         <p>A healthier alternative during your day. We serve delicious meal replacement shakes and energizing drinks!</p>
