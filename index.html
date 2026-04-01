@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nutrition Fix TX | Shakes & Energizing Teas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff1493; /* Neon Pink */
+            --primary-light: #ff66b2;
+            --dark: #1a1a1a;
+            --light: #fdfdfd;
+            --gray: #f4f4f4;
+            --text: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3 { color: var(--dark); }
+        .accent-font {
+            font-family: 'Satisfy', cursive;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Navigation */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: 1px; color: white; text-decoration: none;}
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+        }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; }
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+        .btn:hover { background: transparent; color: var(--primary); }
+
+        /* General Section Layout */
+        section { padding: 5rem 5%; }
+        .section-title { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; }
+
+        /* Benefits Grid */
+        .benefits { background: var(--gray); }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
+        .card ul { list-style: none; margin-top: 1.5rem; text-align: left; }
+        .card ul li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
+        .card ul li::before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Menu Section */
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .menu-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .menu-category h3 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--primary); text-align: center;}
+        .menu-macros { text-align: center; font-size: 0.9rem; font-weight: 600; color: #666; margin-bottom: 2rem; }
+        .flavors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .flavors-grid span { background: var(--gray); padding: 5px 10px; border-radius: 5px; text-align: center; }
+        
+        .boosters {
+            margin-top: 2rem;
+            background: var(--dark);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        .boosters h4 { color: var(--primary-light); margin-bottom: 1rem; text-align: center; }
+        .booster-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; font-size: 0.85rem;}
+        .booster-list span { border: 1px solid var(--primary-light); padding: 3px 8px; border-radius: 20px; }
+
+        /* Info Section */
+        .info-section {
+            background: var(--dark);
+            color: white;
+        }
+        .info-section .section-title { color: white; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .info-block h3 { color: var(--primary); margin-bottom: 1rem; }
+        .info-block p, .info-block li { margin-bottom: 0.5rem; color: #ccc; }
+        .info-block ul { list-style: none; }
+        
+        /* Footer */
+        footer {
+            background: #111;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .menu-wrapper { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; /* simple mobile fallback */ }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><img src="image_8.png" alt="The Nutrition Fix Logo" style="height: 50px; vertical-align: middle; border-radius: 50%;"></a>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#visit">Visit Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="accent-font">Create Your Own Reality</span>
+        <h1>Healthy Hangout.</h1>
+        <p>A healthier alternative during your day. We serve delicious meal replacement shakes and energizing drinks!</p>
+        <a href="#menu" class="btn">View Our Menu</a>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <h2 class="section-title">Fuel Your Day Right</h2>
+        <div class="benefits-grid">
+            <div class="card">
+                <h3>🥤 Shake Benefits</h3>
+                <ul>
+                    <li>24g of high-quality Protein</li>
+                    <li>21 vitamins plus minerals</li>
+                    <li>Around 200 - 250 calories</li>
+                    <li>Less sugar than a banana</li>
+                    <li>Tastes just like ice cream!</li>
+                    <li>A complete, balanced meal</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>⚡ Tea Benefits</h3>
+                <ul>
+                    <li>Burns 100 Calories per serving</li>
+                    <li>Boosts Metabolism</li>
+                    <li>Natural, good-feeling energy</li>
+                    <li>No crash or jitters</li>
+                    <li>Sugar Free</li>
+                    <li>Loaded with Antioxidants</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2 class="section-title">Get Your Fix</h2>
+        <div class="menu-container">
+            <div class="menu-wrapper">
+                
+                <div class="menu-category">
+                    <span class="accent-font" style="text-align:center;">Protein Shakes</span>
+                    <p class="menu-macros">200-250 Cal | 25-35g Protein | 6-8g Sugar | 8-10g Carbs</p>
+                    <div class="flavors-grid">
+                        <span>Animal Cookie</span>
+                        <span>Banana Cream Pie</span>
+                        <span>Blueberry Muffin</span>
+                        <span>Brownie Batter</span>
+                        <span>Caramel Cheesecake</span>
+                        <span>Cinnamon Roll</span>
+                        <span>Cookies & Cream</span>
+                        <span>Cookie Dough</span>
+                        <span>Fried Ice Cream</span>
+                        <span>Lemon Pound Cake</span>
+                        <span>Mint Chip</span>
+                        <span>Oatmeal Cookie</span>
+                        <span>Orange Sherbert</span>
+                        <span>Peanut Butter Bomb</span>
+                        <span>Pina Colada</span>
+                        <span>Samoa Cookie</span>
+                        <span>Strawberry Cheesecake</span>
+                        <span>Wedding Cake</span>
+                        <span>White Choc Reeses</span>
+                        <span>+ Many More!</span>
+                    </div>
+                    
+                    <div class="boosters">
+                        <h4>Shake Boosters</h4>
+                        <div class="booster-list">
+                            <span>Simply Probiotic</span>
+                            <span>Prolessa (Fat Burner)</span>
+                            <span>Fiber</span>
+                            <span>Immunity Essentials</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <span class="accent-font" style="text-align:center;">Energy Teas</span>
+                    <p class="menu-macros">Sugar Free | Thermogenic | Antioxidants</p>
+                    <div class="flavors-grid">
+                        <span>Bomb Pop</span>
+                        <span>Blood Orange</span>
+                        <span>Cancun Crush</span>
+                        <span>Cherry Limeade</span>
+                        <span>Cotton Candy</span>
+                        <span>Gushers</span>
+                        <span>Hot Tamale</span>
+                        <span>Malibu Sunset</span>
+                        <span>Nerds</span>
+                        <span>Pineapple Bay Breeze</span>
+                        <span>Raspberry Lemonade</span>
+                        <span>Starburst</span>
+                        <span>Strawberry Watermelon</span>
+                        <span>Sunrise</span>
+                        <span>Tropical</span>
+                        <span>Jolly Rancher</span>
+                    </div>
+
+                    <div class="boosters">
+                        <h4>Tea Boosters</h4>
+                        <p style="text-align:center; font-size:0.8rem; margin-bottom:10px;">Base energy: Liftoff or NRG</p>
+                        <div class="booster-list">
+                            <span>CR7 Drive</span>
+                            <span>Niteworks</span>
+                            <span>Beauty Booster (Collagen)</span>
+                            <span>H3O</span>
+                            <span>Prepare</span>
+                            <span>Best Defense</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="visit" class="info-section">
+        <h2 class="section-title">Come See Us</h2>
+        <div class="info-grid">
+            <div class="info-block">
+                <h3>📍 Location</h3>
+                <p><strong>The Nutrition Fix TX</strong></p>
+                <p>220 N Main St<br>Grapevine, TX 76051<br>United States</p>
+                <br>
+                <p><em>In-store pickup available!</em></p>
+            </div>
+            
+            <div class="info-block">
+                <h3>⏰ Hours</h3>
+                <ul>
+                    <li><strong>Monday - Friday:</strong> 7:00 AM - 6:00 PM</li>
+                    <li><strong>Saturday:</strong> 9:00 AM - 4:00 PM</li>
+                    <li><strong>Sunday:</strong> Closed</li>
+                </ul>
+            </div>
+
+            <div class="info-block">
+                <h3>📞 Contact</h3>
+                <p><strong>Phone:</strong> (682) 326-9710</p>
+                <p><strong>Email:</strong> thenutritionfixtx@yahoo.com</p>
+                <br>
+                <h3>💳 Good to Know</h3>
+                <ul style="font-size: 0.9rem;">
+                    <li>✓ Accepts Apple Pay & Contactless</li>
+                    <li>✓ Accepts Credit Cards</li>
+                    <li>✓ Free Wi-Fi</li>
+                    <li>✓ Wheelchair Accessible</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Nutrition Fix TX. All Rights Reserved.</p>
+        <p style="margin-top: 5px;">Follow us on Instagram & Facebook @thenutritionfixtx</p>
+    </footer>
+
+</body>
+</html>
