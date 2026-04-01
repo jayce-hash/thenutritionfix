@@ -59,8 +59,8 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
-            min-height: 80vh; /* Changed from fixed height to min-height to prevent overlap */
-            padding: 6rem 20px; /* Added padding to give breathing room top and bottom */
+            min-height: 80vh; /* Responsive height */
+            padding: 6rem 20px; /* Vertical spacing to prevent mobile compression */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -73,7 +73,7 @@
             height: auto;
             border-radius: 50%;
             margin-bottom: 2rem;
-            box-shadow: 0 0 30px rgba(255, 20, 147, 0.4); /* Adds the pink glow behind the logo */
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.4); /* Pink neon glow */
         }
         .hero h1 {
             font-size: 4rem;
@@ -186,12 +186,12 @@
         /* Responsive Mobile Adjustments */
         @media(max-width: 768px) {
             header {
-                justify-content: center; /* Centers the logo on mobile when nav is hidden */
+                justify-content: center;
             }
             .menu-wrapper { grid-template-columns: 1fr; }
-            .hero img.center-logo { max-width: 180px; } /* Slightly smaller center logo on mobile */
+            .hero img.center-logo { max-width: 180px; }
             .hero h1 { font-size: 2.8rem; }
-            .accent-font { font-size: 2rem; } /* Reduces the cursive text size slightly so it doesn't break awkwardly */
+            .accent-font { font-size: 2rem; }
             nav ul { display: none; }
             section { padding: 4rem 5%; }
         }
@@ -200,7 +200,7 @@
 <body>
 
     <header>
-        <a href="#" class="logo"><img src="image_8.png" alt="The Nutrition Fix Logo" style="height: 50px; vertical-align: middle; border-radius: 50%;"></a>
+        <a href="#" class="logo"><img src="Gemini_Generated_Image_tny3l9tny3l9tny3.png" alt="The Nutrition Fix Logo" style="height: 50px; vertical-align: middle; border-radius: 50%;"></a>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -212,7 +212,7 @@
     </header>
 
     <section class="hero">
-        <img src="image_8.png" alt="The Nutrition Fix Logo" class="center-logo">
+        <img src="Gemini_Generated_Image_tny3l9tny3l9tny3.png" alt="The Nutrition Fix Logo" class="center-logo">
         <span class="accent-font">Create Your Own Reality</span>
         <h1>Healthy Hangout.</h1>
         <p>A healthier alternative during your day. We serve delicious meal replacement shakes and energizing drinks!</p>
